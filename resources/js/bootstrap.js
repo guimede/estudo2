@@ -1,5 +1,10 @@
 window._ = require('lodash');
 
+window.Jquery = require('../plugins/jquery/jquery');
+window.$ = window.Jquery;
+require('../plugins/jquery-ui/jquery-ui');
+require('../assets/js/adminlte');
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
