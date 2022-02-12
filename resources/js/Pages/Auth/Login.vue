@@ -4,59 +4,81 @@
     <jet-authentication-card>
         <jet-validation-errors class="mb-4" />
 
-        <form @submit.prevent="submit">
-            <div>
-                <jet-label for="email" value="Email" />
-                <jet-input
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autofocus
-                />
-            </div>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">
+                    Realize o Login Para Acessar o Sistema
+                </p>
 
-            <div class="mt-4">
-                <jet-label for="password" value="Password" />
-                <jet-input
-                    id="password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password"
-                    required
-                    autocomplete="current-password"
-                />
-            </div>
+                <form @submit.prevent="submit">
+                    <div class="input-group mb-3">
+                        <jet-input
+                            id="email"
+                            type="email"
+                            class="form-control"
+                            v-model="form.email"
+                            required
+                            autofocus
+                        />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <jet-checkbox
-                        name="remember"
-                        v-model:checked="form.remember"
-                    />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
-                </label>
-            </div>
+                    <div class="input-group mb-3">
+                        <jet-input
+                            id="password"
+                            type="password"
+                            class="form-control"
+                            v-model="form.password"
+                            required
+                            autocomplete="current-password"
+                        />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="input-group mb-3">
+                                <label class="flex items-center">
+                                    <jet-checkbox
+                                        name="remember"
+                                        v-model:checked="form.remember"
+                                    />
+                                    <span class="ml-2 text-sm text-gray-600"
+                                        >Remember me</span
+                                    >
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <jet-button
+                                class="btn btn-primary btn-block"
+                                :class="{ 'opacity-25': form.processing }"
+                                :disabled="form.processing"
+                            >
+                                Acessar
+                            </jet-button>
+                        </div>
+                    </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <Link
-                    v-if="canResetPassword"
-                    :href="route('password.request')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900"
-                >
-                    Forgot your password?
-                </Link>
-
-                <jet-button
-                    class="ml-4"
-                    :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
-                >
-                    Log in
-                </jet-button>
+                    <div class="input-group mb-3">
+                        <Link
+                            v-if="canResetPassword"
+                            :href="route('password.request')"
+                            class="underline text-sm text-gray-600 hover:text-gray-900"
+                        >
+                            Manter Acesso
+                        </Link>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </jet-authentication-card>
 </template>
 

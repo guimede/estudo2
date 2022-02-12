@@ -16,9 +16,7 @@
         @routes
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
-
-        <h1 id="meuzovo">Teste</h1>
+    <body class="hold-transition sidebar-mini layout-fixed login-page">
 
         @inertia
 
